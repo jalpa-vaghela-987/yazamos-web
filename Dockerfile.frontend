@@ -1,0 +1,28 @@
+FROM node:20-alpine as build-vue
+
+WORKDIR /frontend
+COPY admin/package.json ./
+RUN npm cache clean --force
+RUN npm install --legacy-peer-deps
+RUN npm install --save-dev ajv@8.16.0 ajv-keywords@5.1.0 schema-utils@4.2.0 --legacy-peer-deps
+RUN npm -v
+COPY admin/.env.example .env.local
+RUN ls -latr
+RUN cat .env.local
+
+COPY admin ./
+
+RUN npm run build
+RUN pwd && ls -l -a dist/
+
+
+FROM ubuntu/apache2:latest
+
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+
+COPY ./.htaccess_fe /var/www/html/public/.htaccess
+COPY --from=build-vue /frontend/dist/ /var/www/html/public
+COPY --from=build-vue /frontend/dist/index.html /var/www/html/resources/views/admin/index.blade.php
+EXPOSE 80
+RUN a2enmod rewrite
+CMD apachectl -D FOREGROUND

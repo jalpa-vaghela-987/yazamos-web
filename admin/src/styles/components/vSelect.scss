@@ -1,0 +1,131 @@
+body {
+    --vs-colors--lightest: rgba(60, 60, 60, 0.26);
+    --vs-colors--light: rgba(60, 60, 60, 0.5);
+    --vs-colors--dark: #333;
+    --vs-colors--darkest: rgba(0, 0, 0, 0.15);
+
+    /* Search Input */
+    --vs-search-input-color: inherit;
+    --vs-search-input-bg: rgb(255, 255, 255);
+    --vs-search-input-placeholder-color: inherit;
+
+    /* Font */
+    --vs-font-size: 14px;
+    --vs-line-height: 1.5;
+
+    /* Disabled State */
+    --vs-state-disabled-bg: rgb(248, 248, 248);
+    --vs-state-disabled-color: var(--vs-colors--light);
+    --vs-state-disabled-controls-color: var(--vs-colors--light);
+    --vs-state-disabled-cursor: not-allowed;
+
+    /* Borders */
+    --vs-border-color: #ced4da;
+    --vs-border-width: 1px;
+    --vs-border-style: solid;
+    --vs-border-radius: 0.25rem;
+
+    /* Actions: house the component controls */
+    --vs-actions-padding: 0px;
+
+    /* Component Controls: Clear, Open Indicator */
+    --vs-controls-color: var(--vs-colors--light);
+    --vs-controls-size: 1;
+    --vs-controls--deselect-text-shadow: 0 1px 0 #fff;
+
+    /* Selected */
+    --vs-selected-bg: #f0f0f0;
+    --vs-selected-color: var(--vs-colors--dark);
+    --vs-selected-border-color: var(--vs-border-color);
+    --vs-selected-border-style: var(--vs-border-style);
+    --vs-selected-border-width: var(--vs-border-width);
+
+    /* Dropdown */
+    --vs-dropdown-bg: #fff;
+    --vs-dropdown-color: inherit;
+    --vs-dropdown-z-index: 1000;
+    --vs-dropdown-min-width: 160px;
+    --vs-dropdown-max-height: 350px;
+    --vs-dropdown-box-shadow: 0px 3px 6px 0px var(--vs-colors--darkest);
+
+    /* Options */
+    --vs-dropdown-option-bg: #000;
+    --vs-dropdown-option-color: var(--vs-dropdown-color);
+    --vs-dropdown-option-padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+
+    /* Active State */
+    --vs-dropdown-option--active-bg: var(--e-global-color-accent);
+    --vs-dropdown-option--active-color: #fff;
+
+    /* Deselect State */
+    --vs-dropdown-option--deselect-bg: #fb5858;
+    --vs-dropdown-option--deselect-color: #fff;
+
+    /* Transitions */
+    --vs-transition-timing-function: cubic-bezier(1, -0.115, 0.975, 0.855);
+    --vs-transition-duration: 150ms;
+
+    .v-select {
+        font-size: 14px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+
+    .vs__dropdown-toggle {
+        padding: 0 5px 0 0.75rem;
+        height: 35px;
+    }
+
+    .vs--single .vs__selected,
+    .vs__selected-options,
+    .vs__search {
+        //   padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    .vs__search {
+        padding: 0px !important;
+    }
+
+    .vs__open-indicator {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708' fill='%23495057'/%3e%3c/svg%3e");
+        fill: transparent;
+        background-size: 11px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .vs__clear {
+        display: none;
+    }
+
+}
+
+.form-input.vue-treeselect:focus .vue-treeselect__control,
+.vue-treeselect--focused:not(.vue-treeselect--open) .vue-treeselect__control{
+    border-color: #ab48d3 !important;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(98, 30, 125, .25) !important;
+}
+
+.form-input.vue-treeselect.error-input {
+    padding-right: 0px !important;
+  }
+  .form-input.vue-treeselect.error-input .vue-treeselect__control {  
+    border-color: #dc3545 !important;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    padding-right: calc(1.5em + .75rem) !important;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+  }
+  [dir="rtl"]{
+    .form-input.vue-treeselect.error-input .vue-treeselect__control {  
+      background-position: left calc(.375em + .1875rem) center;
+      padding-left: calc(1.5em + .75rem) !important;
+      padding-right: 5px !important;
+      background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+    }
+  }
